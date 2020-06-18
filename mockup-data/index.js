@@ -19,4 +19,23 @@ let mockupSchema = new mongoose.Schema({
   }]
 });
 
-let Reviews = mongoose.model('Reviews', mockupSchema);
+let Review = mongoose.model('Review', mockupSchema);
+
+let insertData = data => {
+  let reviews = [];
+
+  for (let instance of data) {
+    let review = new Review(instance);
+    reviews.push(review);
+  }
+
+  Review.insertMany(reviews, (err, result) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log('seeding successful');
+    }
+  })
+}
+
+insertData(data);
