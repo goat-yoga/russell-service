@@ -3,6 +3,7 @@ const bodyparser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 const path = require('path');
+const db = require('../mockup-data/index.js');
 
 const server = express();
 const port = 3000;
@@ -16,6 +17,14 @@ server.listen(port, () => console.log(`App listening at http://localhost:${port}
 
 server.use(express.static(path.join(__dirname, '../client/dist')));
 
-server.get('/api', (req, res) => {
-  res.send('hello from GET');
-})
+server.get('/api/:productId', (req, res) => {
+  let { productId } = req.params;
+
+  db.getReviews(productId, (err, result) => {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      res.status(200).json(result);
+    }
+  });
+});

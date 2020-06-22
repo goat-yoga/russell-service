@@ -11,7 +11,15 @@ const generateProducts = () => {
   var results = [];
 
   for (let i = 0; i < 100; i++) {
-    results.push(generateProductName());
+    let productName = generateProductName().split(' ');
+
+    for (let i = 0; i < productName.length; i++) {
+      productName[i] = productName[i][0].toLowerCase() + productName[i].slice(1);
+    }
+
+    let productId = productName.join('-');
+    console.log(productId);
+    // results.push(generateProductName());
   }
 
   return results;

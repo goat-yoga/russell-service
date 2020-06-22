@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fetcher', { useNewUrlParser: true }, () => console.log('Test Database Connected!'));
-const data = require('./seed.js');
+const myDb = 'mongodb://localhost/reviews';
+mongoose.connect(myDb, { useNewUrlParser: true }, () => console.log('Database Connected!'));
+// const data = require('./seed.js');
 
-let mockupSchema = new mongoose.Schema({
-  id: {
+let reviewSchema = new mongoose.Schema({
+  _id: {
     type: Number,
     unique: true,
     dropDups: true,
@@ -11,7 +12,7 @@ let mockupSchema = new mongoose.Schema({
   },
   product: String,
   reviews: [{
-    id: Number,
+    _id: Number,
     rating: Number,
     title: String,
     body: String,
@@ -19,7 +20,7 @@ let mockupSchema = new mongoose.Schema({
   }]
 });
 
-let Review = mongoose.model('Review', mockupSchema);
+let Review = mongoose.model('Review', reviewSchema);
 
 let insertData = data => {
   let reviews = [];
@@ -37,8 +38,6 @@ let insertData = data => {
     }
   });
 };
-
-// insertData(data);
 
 module.exports = {
   getReviews: (product, cb) => {
