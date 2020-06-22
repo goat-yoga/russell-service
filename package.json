@@ -8,7 +8,9 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "mockup-seed": "node mockup-data/index.js"
+    "mockup-seed": "node mockup-data/index.js",
+    "react-dev": "webpack -d --watch",
+    "start": "nodemon server/index.js"
   },
   "dependencies": {
     "axios": "^0.19.2",
