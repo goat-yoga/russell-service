@@ -10,6 +10,7 @@
   "scripts": {
     "mockup-seed": "node mockup-data/index.js",
     "react-dev": "webpack -d --watch",
+    "seed": "node db/seed.js",
     "start": "nodemon server/index.js"
   },
   "dependencies": {

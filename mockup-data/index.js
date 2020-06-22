@@ -38,7 +38,7 @@ let insertData = data => {
   });
 };
 
-// insertData(data);
+insertData(data);
 
 module.exports = {
   getReviews: (product, cb) => {

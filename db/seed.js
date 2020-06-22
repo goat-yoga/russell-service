@@ -1,5 +1,5 @@
 const faker = require('faker');
-
+const db = require('./index.js');
 
 const generateProductName = faker.commerce.productName;
 // const generateRating = Math.ceil(Math.random() * 5);
@@ -12,14 +12,7 @@ const generateProducts = () => {
   var results = [];
 
   for (let i = 0; i < 100; i++) {
-    let productName = generateProductName().split(' ');
-
-    for (let i = 0; i < productName.length; i++) {
-      productName[i] = productName[i][0].toLowerCase() + productName[i].slice(1);
-    }
-
-    let productId = productName.join('-');
-    results.push(productId);
+    results.push(generateProductName());
   }
 
   return results;
@@ -27,11 +20,24 @@ const generateProducts = () => {
 
 const products = generateProducts();
 
+const generateProductId = (product) => {
+  let productName = product.split(' ');
+
+  for (let i = 0; i < productName.length; i++) {
+    productName[i] = productName[i][0].toLowerCase() + productName[i].slice(1);
+  }
+
+  let productId = productName.join('-');
+
+  return productId;
+};
+
 // generate 15 reviews for each product
 const generateReviews = (product) => {
   let results = [];
+  let randomNum = Math.floor(Math.random() * 41);
 
-  for (let i = 0; i < 15; i++) {
+  for (let i = 0; i < randomNum; i++) {
     let review = {
       id: i + 1,
       rating: Math.ceil(Math.random() * 5),
@@ -52,10 +58,12 @@ const generateData = products => (
     {
       id: i,
       product: product,
+      productId: generateProductId(product),
       reviews: generateReviews()
     }
   ))
 );
 
+let data = generateData(products);
 
-module.exports = generateData(products);
+db.insertData(data);

@@ -3,7 +3,7 @@ const bodyparser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 const path = require('path');
-const db = require('../mockup-data/index.js');
+const db = require('../db/index.js');
 
 const server = express();
 const port = 3000;
