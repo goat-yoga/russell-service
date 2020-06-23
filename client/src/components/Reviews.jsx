@@ -1,20 +1,24 @@
 import React from 'react';
 import Axios from 'axios';
-import ReviewEntry from './ReviewEntry.jsx';
+import Reviews from './Reviews.jsx';
 import StarsUI from './StarsUI.jsx';
+import ReviewEntry from './ReviewEntry.jsx';
 
-export default class Reviews extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       productId: 'handcrafted-metal-bike',
       reviews: [],
-      rating: 0
+      rating: 0,
+      currentPage: 1,
+      postsPerPage: 5,
     };
 
     this.getReviews = this.getReviews.bind(this);
     this.calculateAvgRating = this.calculateAvgRating.bind(this);
+    this.paginate = this.paginate.bind(this);
   }
 
   componentDidMount() {
@@ -46,7 +50,15 @@ export default class Reviews extends React.Component {
 
     this.setState({
       rating: rating
-    }, () => console.log(this.state));
+    });
+  }
+
+  paginate() {
+    let { currentPage, postsPerPage, reviews } = this.state;
+    const indexOfLastReview = currentPage * postsPerPage;
+    const indexOfFirstReview = indexOfLastReview - postsPerPage;
+
+    return reviews.slice(indexOfFirstReview, indexOfLastReview);
   }
 
   render() {
@@ -61,7 +73,7 @@ export default class Reviews extends React.Component {
           <span className="large-p text">{this.state.reviews.length} Reviews</span>
         </div>
         <hr></hr>
-        {this.state.reviews.map((review, i) => (
+        {this.paginate().map((review, i) => (
           <ReviewEntry key={i} review={review} />
         ))}
       </div>
