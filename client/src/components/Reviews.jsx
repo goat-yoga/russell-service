@@ -1,8 +1,8 @@
 import React from 'react';
 import Axios from 'axios';
-import Reviews from './Reviews.jsx';
 import StarsUI from './StarsUI.jsx';
 import ReviewEntry from './ReviewEntry.jsx';
+import Pagination from './Pagination.jsx';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ export default class App extends React.Component {
       reviews: [],
       rating: 0,
       currentPage: 1,
-      postsPerPage: 5,
+      reviewsPerPage: 5,
     };
 
     this.getReviews = this.getReviews.bind(this);
@@ -54,11 +54,19 @@ export default class App extends React.Component {
   }
 
   paginate() {
-    let { currentPage, postsPerPage, reviews } = this.state;
-    const indexOfLastReview = currentPage * postsPerPage;
-    const indexOfFirstReview = indexOfLastReview - postsPerPage;
+    let { currentPage, reviewsPerPage, reviews } = this.state;
+    const indexOfLastReview = currentPage * reviewsPerPage;
+    const indexOfFirstReview = indexOfLastReview - reviewsPerPage;
 
     return reviews.slice(indexOfFirstReview, indexOfLastReview);
+  }
+
+  nextPage(e) {
+
+  }
+
+  changePage(e) {
+
   }
 
   render() {
@@ -76,6 +84,7 @@ export default class App extends React.Component {
         {this.paginate().map((review, i) => (
           <ReviewEntry key={i} review={review} />
         ))}
+        <Pagination reviewsPerPage={this.state.reviewsPerPage} totalReviews={this.state.reviews.length} />
       </div>
     );
   }
