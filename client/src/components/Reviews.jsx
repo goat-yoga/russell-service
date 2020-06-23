@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-// import ReviewEntry from './ReviewEntry.jsx';
+import ReviewEntry from './ReviewEntry.jsx';
 import StarsUI from './StarsUI.jsx';
 
 export default class Reviews extends React.Component {
@@ -61,6 +61,9 @@ export default class Reviews extends React.Component {
           <span className="large-p text">{this.state.reviews.length} Reviews</span>
         </div>
         <hr></hr>
+        {this.state.reviews.map((review, i) => (
+          <ReviewEntry key={i} review={review} />
+        ))}
       </div>
     );
   }
