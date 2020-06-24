@@ -4,7 +4,7 @@ import StarsUI from './StarsUI.jsx';
 import ReviewEntry from './ReviewEntry.jsx';
 import Pagination from './Pagination.jsx';
 
-export default class App extends React.Component {
+export default class Reviews extends React.Component {
   constructor(props) {
     super(props);
 
