@@ -28,3 +28,5 @@ server.get('/api/:productId', (req, res) => {
     }
   });
 });
+
+module.exports = server;
