@@ -6,7 +6,7 @@ describe('<StarsUI />', () => {
 
   it('should render the correct starfill according to the passed in rating', () => {
     let rating = 4;
-    let fill = 4 / 5 * 100 + '%';
+    let fill = rating / 5 * 100 + '%';
 
     const wrapper = shallow(<StarsUI rating={rating} />);
 
