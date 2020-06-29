@@ -9,7 +9,7 @@ export default class Reviews extends React.Component {
     super(props);
 
     this.state = {
-      productId: 'handcrafted-metal-bike',
+      productId: 'licensed-fresh-car',
       reviews: [],
       rating: 0,
       currentPage: 1,
