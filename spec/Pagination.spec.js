@@ -9,7 +9,7 @@ describe('<Pagination />', () => {
   let changePage = Reviews.changePage;
   let selectPage = Reviews.selectPage;
 
-  let wrapper = mount(
+  let wrapper = shallow(
     <Pagination
       reviewsPerPage={reviewsPerPage}
       totalReviews={totalReviews}
