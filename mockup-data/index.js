@@ -49,5 +49,6 @@ module.exports = {
         cb(null, result);
       }
     });
-  }
+  },
+  Review: Review
 };

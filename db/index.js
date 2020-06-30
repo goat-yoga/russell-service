@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const myDb = 'mongodb://localhost/reviews';
-mongoose.connect(myDb, { useNewUrlParser: true }, () => console.log('Database Connected!'));
+mongoose.connect(myDb, { useNewUrlParser: true, useCreateIndex: true }, () => console.log('Database Connected!'));
 
 let reviewSchema = new mongoose.Schema({
   id: {
@@ -49,5 +49,6 @@ module.exports = {
         cb(null, result);
       }
     });
-  }
+  },
+  Review: Review
 };
