@@ -88,7 +88,7 @@ export default class Reviews extends React.Component {
             <span className="large-p">|</span>
             <span className="large-p text">{this.state.reviews.length} Reviews</span>
           </div>
-          <hr></hr>
+          <hr/>
           {this.paginate().map((review, i) => (
             <ReviewEntry key={i} review={review} />
           ))}

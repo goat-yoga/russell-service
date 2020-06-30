@@ -2,7 +2,7 @@ import React from 'react';
 import { shallow, mount } from 'enzyme';
 import Reviews from '../client/src/components/Reviews.jsx';
 
-describe('<Reviews />', () =>{
+describe('<Reviews />', () => {
 
   it('should render the reviews header', () => {
     let wrapper = shallow(<Reviews />);

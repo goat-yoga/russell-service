@@ -1,24 +1,28 @@
-const mongoose = require('mongoose');
-const { Review, getReviews } = require('../db/index.js');
+const {MongoClient} = require('mongodb');
 const myDb = 'mongodb://localhost/reviews';
+const regeneratorRuntime = require("regenerator-runtime");
 
-describe('fetching reviews from MongoDB', () => {
+describe('retrieving reviews from database', () => {
+  let connection;
+  let db;
 
   beforeAll(async () => {
-    await mongoose.connect(myDB, { useNewUrlParser: true, useCreateIndex: true }, (err) => {
-      if (err) {
-        console.error(err);
-        process.exit(1);
-      }
+    connection = await MongoClient.connect(myDb, {
+      useNewUrlParser: true,
     });
+    db = await connection.db(global.reviews);
   });
 
-  it('should fetch reviews from the database', async () => {
-    let reviews;
-    getReviews('licensed-fresh-car', () => {
-      reviews = result;
-    });
-    console.log(result);
-  })
+  afterAll(async () => {
+    await connection.close();
+    await db.close();
+  });
 
+  it('should fetch product reviews', async () => {
+    const reviews = db.collection('reviews');
+
+    const product = await reviews.findOne({id: 1});
+
+    expect(product.reviews).toHaveLength(13);
+  });
 });
