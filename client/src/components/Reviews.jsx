@@ -30,7 +30,7 @@ export default class Reviews extends React.Component {
   getReviews() {
     let { productId } = this.state;
 
-    Axios.get(`/api/${productId}`)
+    Axios.get(`http://localhost:3001/api/${productId}`)
       .then(result => {
         this.setState({
           reviews: result.data[0].reviews
