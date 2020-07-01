@@ -1,0 +1,230 @@
+body {
+  font-family: arquitecta, Helvetica, Arial, sans-serif;
+  font-size: .9375rem;
+  line-height: 1.2;
+  color: #000;
+  background-color: #fff;
+}
+
+div {
+  display: block;
+}
+
+#product-display {
+  padding: 0 45px;
+  margin: 0 auto;
+  max-width: 1680px;
+}
+
+.col-12,
+.col-md-10 {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.col-12 {
+  flex: 0 0 100%;
+  max-width: 100%
+}
+
+.col-md-10 {
+  flex: 0 0 83.33333%;
+  max-width: 83.33333%;
+}
+
+.offset-md-1 {
+  margin-left: 8.33333%;
+}
+
+#Reviews {
+  padding-top: 40px;
+}
+
+h3 {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+}
+
+.h3 {
+  font-family: inherit;
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: .09375em;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+
+.description__line:first-of-type {
+  margin-bottom: 20px;
+}
+
+.description__line {
+  width: calc(100% - 30px);
+  margin: 0 auto;
+  height: 1px;
+  background-color: #cfcfcf;
+}
+
+/*
+======================================
+Reviews Header
+======================================
+*/
+
+.header {
+  text-align: center;
+}
+
+.subheader {
+  justify-content: center;
+  display: flex;
+  margin-top: 12px;
+  margin-bottom: 40px;
+}
+
+.subheader
+.text {
+  color: #605e5c;
+  margin-left: .4rem;
+  align-self: baseline;
+}
+
+.large-p {
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: .03125em;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+======================================
+Stars
+======================================
+*/
+
+.subheader>.StarsUI {
+  margin-right: .4rem;
+}
+
+.StarsUI,
+.StarsUI>span.fill {
+  display: block;
+  background: url(https://cdn.shopify.com/s/files/1/2185/2813/files/pdp-reviews-empty-star.svg?v=1590020711) 0 0 repeat-x;
+  width: 125px;
+  height: 25px;
+  background-size: 25px 25px;
+}
+
+.StarsUI>span.fill {
+  background-position: 0 0;
+  background-image: url(https://cdn.shopify.com/s/files/1/2185/2813/files/pdp-reviews-full-star.svg?v=1590020711);
+}
+
+hr {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  border: 0;
+  border-top: 1px solid #e3e3e3;
+  box-sizing: content-box;
+  height: 0;
+  display: block;
+  unicode-bidi: isolate;
+  margin-block-start: 0.5em;
+  margin-block-end: 0.5em;
+  margin-inline-start: auto;
+  margin-inline-end: auto;
+  overflow: hidden;
+}
+
+/*
+======================================
+Review Entries
+======================================
+*/
+
+.ReviewEntry {
+  padding: 30px 0;
+}
+
+.ReviewEntry:not(:first-child) {
+  border-bottom: 1px solid #cfcfcf;
+}
+
+.small-p {
+  font-size: 1rem;
+  font-weight:  400;
+  line-height: 1.56;
+  letter-spacing: .03125em;
+  color: #605e5c;
+  margin: 0;
+  padding: 0;
+}
+
+.ReviewEntry
+.title {
+  letter-spacing: .5px;
+  font-weight: 600;
+  color: #000;
+  margin: 12px 0;
+}
+
+.ReviewEntry
+.name {
+  margin-top: 20px;
+}
+
+/*
+======================================
+Pagination
+======================================
+*/
+
+button {
+  cursor: pointer;
+}
+
+.pagination {
+  justify-content: center;
+  margin: 25px 0;
+  padding: 5px;
+  display: inline-flex;
+  overflow-y: auto;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.pagination
+.option {
+  background: none;
+  border: none;
+  margin: 0 7.5px;
+  font-family: arquitecta,Helvetica,Arial,sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 1.25px;
+  text-transform: uppercase;
+}
+
+.pagination
+.option.active {
+  font-weight: 700;
+  border-bottom: 1px solid #cfcfcf;
+}
+
+.pagination
+.option:disabled {
+  opacity: .5;
+  cursor: not-allowed;
+}
