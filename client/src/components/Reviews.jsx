@@ -9,7 +9,6 @@ export default class Reviews extends React.Component {
     super(props);
 
     this.state = {
-      productId: 'licensed-fresh-car',
       reviews: [],
       rating: 0,
       currentPage: 1,
@@ -28,9 +27,7 @@ export default class Reviews extends React.Component {
   }
 
   getReviews() {
-    let { productId } = this.state;
-
-    Axios.get(`http://localhost:3001/api/${productId}`)
+    Axios.get('http://localhost:3001/api')
       .then(result => {
         this.setState({
           reviews: result.data[0].reviews

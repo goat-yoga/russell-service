@@ -17,10 +17,8 @@ server.listen(port, () => console.log(`App listening at http://localhost:${port}
 
 server.use(express.static(path.join(__dirname, '../client/dist')));
 
-server.get('/api/:productId', (req, res) => {
-  let { productId } = req.params;
-
-  db.getReviews(productId, (err, result) => {
+server.get('/api', (req, res) => {
+  db.getReviews((err, result) => {
     if (err) {
       res.status(400).send(err);
     } else {

@@ -6,10 +6,6 @@ body {
   background-color: #fff;
 }
 
-div {
-  display: block;
-}
-
 #product-display {
   padding: 0 45px;
   margin: 0 auto;

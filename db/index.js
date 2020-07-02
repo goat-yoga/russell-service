@@ -41,8 +41,9 @@ module.exports = {
     });
   },
 
-  getReviews: (product, cb) => {
-    Review.find({ productId: product }, (err, result) => {
+  getReviews: (cb) => {
+    var random = Math.ceil(Math.random() * 100);
+    Review.find({ id: random }, (err, result) => {
       if (err) {
         cb(err);
       } else {

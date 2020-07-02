@@ -59,3 +59,4 @@ const generateData = products => (
 
 
 module.exports = generateData(products);
+
