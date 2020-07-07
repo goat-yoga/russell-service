@@ -74,7 +74,7 @@ export default class Reviews extends React.Component {
 
   render() {
     return (
-      <div id="product-display" className="d-none d-md-block">
+      <div id="reviews-display" className="d-none d-md-block">
         <div className="description__line"></div>
         <div id="Reviews" className="col-12 col-md-10 offset-md-1">
           <div className="header">
